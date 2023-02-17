@@ -1,0 +1,19 @@
+# 生成墓碑的地图
+enable-world: []
+
+# 读取玩家的皮肤
+load-player-skin: true
+
+title: "#{player} 的遗产"
+
+display-title: " #{title} #{chunk-protected}\n #{live-time} 后 &c消失"
+
+protected-msg: "&a (保护中&7[#{protected-time}]&a)"
+
+unprotected-msg: "&c (保护失效)"
+
+# 墓碑保护时间(秒)
+protect-time: 300
+
+# 持续时间(秒)
+live-time: 300
