@@ -8,6 +8,7 @@ import cn.nukkit.event.Listener;
 import cn.nukkit.event.entity.EntityDamageByEntityEvent;
 import cn.nukkit.event.entity.EntityDamageEvent;
 import cn.nukkit.event.player.PlayerDeathEvent;
+import cn.nukkit.event.player.PlayerInteractEntityEvent;
 import cn.nukkit.item.Item;
 import cn.nukkit.plugin.PluginBase;
 import cn.nukkit.utils.Config;
@@ -38,7 +39,6 @@ public class MainClass extends PluginBase implements Listener {
     @Override
     public void onEnable() {
         mainClass = this;
-        checkServer();
         this.getLogger().info("初始化配置文件中...");
         saveDefaultConfig();
         reloadConfig();
@@ -85,7 +85,7 @@ public class MainClass extends PluginBase implements Listener {
                 }
                 skin.setSkinResourcePatch("{\"geometry\":{\"default\":\"" + geometryName + "\"}}");
                 skin.setGeometryData(Utils.readFile(new File(this.getDataFolder() + "/skin/skin.json")));
-                skin.setTrusted(true);
+
             } else {
                 for (Map.Entry<String, Object> entry1 : skinJson.entrySet()) {
                     if (geometryName == null) {
@@ -95,11 +95,14 @@ public class MainClass extends PluginBase implements Listener {
                 skin.setGeometryName(geometryName);
                 skin.setGeometryData(Utils.readFile(new File(this.getDataFolder() + "/skin/skin.json")));
             }
+            skin.setTrusted(true);
         } catch (IOException var19) {
             this.getLogger().error("皮肤载入失败！");
         }
 
     }
+
+
 
     @EventHandler
     public void onDamage(EntityDamageEvent event){
@@ -132,25 +135,7 @@ public class MainClass extends PluginBase implements Listener {
     }
 
 
-    private static void checkServer(){
-        boolean ver = false;
-        //双核心兼容
-        try {
-            Class<?> c = Class.forName("cn.nukkit.Nukkit");
-            c.getField("NUKKIT_PM1E");
-            ver = true;
 
-        } catch (ClassNotFoundException | NoSuchFieldException ignore) { }
-        try {
-            Class<?> c = Class.forName("cn.nukkit.Nukkit");
-            c.getField("NUKKIT").get(c).toString().equalsIgnoreCase("Nukkit PetteriM1 Edition");
-            ver = true;
-        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException ignore) {
-        }
-
-        AbstractFakeInventory.IS_PM1E = ver;
-
-    }
 
 
     @EventHandler

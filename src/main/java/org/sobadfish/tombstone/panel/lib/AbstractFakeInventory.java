@@ -79,11 +79,7 @@ public abstract class AbstractFakeInventory extends ContainerInventory {
             service.execute(() -> {
                 Vector3 blockPosition = blocks.get(index).asVector3();
                 UpdateBlockPacket updateBlock = new UpdateBlockPacket();
-                if(IS_PM1E){
-                    updateBlock.blockRuntimeId = GlobalBlockPalette.getOrCreateRuntimeId(who.protocol,who.getLevel().getBlock(blockPosition).getFullId());
-                }else{
-                    updateBlock.blockRuntimeId = GlobalBlockPalette.getOrCreateRuntimeId(who.getLevel().getBlock(blockPosition).getFullId());
-                }
+                updateBlock.blockRuntimeId = GlobalBlockPalette.getOrCreateRuntimeId(who.getLevel().getBlock(blockPosition).getFullId());
                 updateBlock.flags = UpdateBlockPacket.FLAG_ALL_PRIORITY;
                 updateBlock.x = blockPosition.getFloorX();
                 updateBlock.y = blockPosition.getFloorY();

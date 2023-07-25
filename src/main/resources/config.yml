@@ -2,7 +2,7 @@
 enable-world: []
 
 # 读取玩家的皮肤
-load-player-skin: true
+load-player-skin: false
 
 title: "#{player} 的遗产"
 
