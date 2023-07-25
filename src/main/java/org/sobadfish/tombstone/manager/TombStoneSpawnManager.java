@@ -38,7 +38,7 @@ public class TombStoneSpawnManager {
               tag);
 
         tombStoneEntity.setSkin(skin);
-        tombStoneEntity.setYaw(player.getYaw());
+        tombStoneEntity.yaw = player.getYaw();
         tombStoneEntity.spawnToAll();
 //        tombStones.add(tombStone);
 
