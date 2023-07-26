@@ -49,6 +49,9 @@ public class MainClass extends PluginBase implements Listener {
         this.getServer().getPluginManager().registerEvents(this,this);
     }
 
+    /**
+     * 来自RsNPC的模型加载代码
+     * */
     private void initDataFile() {
         //如果是4D皮肤
         if(!new File(this.getDataFolder()+"/skin").exists()){

@@ -47,6 +47,7 @@ public class TombStoneEntity extends EntityHuman {
             pTime = MainClass.mainClass.getConfig().getInt("protect-time");
         }
         liveTime = MainClass.mainClass.getConfig().getInt("live-time",300);
+        setScale(2.5f);
 
         setNameTag("...");
 
