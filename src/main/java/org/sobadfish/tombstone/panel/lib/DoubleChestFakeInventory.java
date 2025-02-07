@@ -11,18 +11,17 @@ import cn.nukkit.nbt.tag.CompoundTag;
 import cn.nukkit.network.protocol.BlockEntityDataPacket;
 import org.sobadfish.tombstone.MainClass;
 import org.sobadfish.tombstone.entity.TombStoneEntity;
-import org.sobadfish.tombstone.manager.entity.TombStone;
+import org.sobadfish.tombstone.panel.lib.ChestFakeInventory;
 
 import java.io.IOException;
 import java.nio.ByteOrder;
 import java.util.Arrays;
 import java.util.List;
 
-
 /**
  * 本类引用 SupermeMortal 的 FakeInventories 插件
  * @author SupermeMortal*/
-public class DoubleChestFakeInventory extends ChestFakeInventory{
+public class DoubleChestFakeInventory extends ChestFakeInventory {
 
     public TombStoneEntity stone = null;
 
