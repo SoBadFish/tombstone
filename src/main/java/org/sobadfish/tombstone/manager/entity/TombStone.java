@@ -14,6 +14,8 @@ public class TombStone {
 
     public String target;
 
+    public Player player;
+
     public Map<Integer,Item> inventoryItem;
 
     public Position spawnPosition;
@@ -22,6 +24,7 @@ public class TombStone {
 
     public TombStone(Player player){
         this.target = player.getName();
+        this.player = player;
         this.inventoryItem = player.getInventory().getContents();
         this.spawnPosition = player.getPosition();
         this.createTime = System.currentTimeMillis();

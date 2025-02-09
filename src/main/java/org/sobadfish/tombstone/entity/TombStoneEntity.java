@@ -1,5 +1,7 @@
 package org.sobadfish.tombstone.entity;
 
+
+
 import cn.nukkit.entity.EntityHuman;
 import cn.nukkit.level.Position;
 import cn.nukkit.level.format.FullChunk;
@@ -78,8 +80,14 @@ public class TombStoneEntity extends EntityHuman {
             long afterTime = System.currentTimeMillis() - tombStone.createTime;
 //            String msg = tombStone.target+" 的遗产 "+pri+" \n";
             int s = (int) (afterTime / 1000);
+            String name = tombStone.target;
+            if(MainClass.mainClass.getServer().getPluginManager().getPlugin("CustomName") != null){
+                try {
+                    name = TiXYA2357.Command.Lib.getPlayerStrName(tombStone.player);
+                }catch (Exception ignore){}
+            }
             String msg = MainClass.mainClass.getConfig().getString("display-title")
-                    .replace("#{title}",MainClass.mainClass.getConfig().getString("title").replace("#{player}",tombStone.target))
+                    .replace("#{title}",MainClass.mainClass.getConfig().getString("title").replace("#{player}",name))
                     .replace("#{chunk-protected}",pri)
                     .replace("#{live-time}",MainClass.formatTime(liveTime - s));
             setNameTag(TextFormat.colorize('&',msg));

@@ -1,5 +1,7 @@
 name: TombStone
 main: org.sobadfish.tombstone.MainClass
-version: 1.0.3
+version: 1.0.4
 api: 1.0.14
 author: Sobadfish
+softdepend:
+  - CustomName

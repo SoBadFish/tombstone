@@ -6,7 +6,7 @@
 
     <groupId>org.sobadfish.tombstone</groupId>
     <artifactId>tombstone</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
@@ -61,6 +61,13 @@
             <version>MOT-java8-SNAPSHOT</version>
             <scope>provided</scope>
             <!--<systemPath> ${project.basedir}/lib/Nukkit-PM1E-MOT-SNAPSHOT.jar</systemPath>-->
+        </dependency>
+        <dependency>
+            <groupId>TiXYA2357</groupId>
+            <artifactId>CustomName</artifactId>
+            <version>1.1.4-End</version>
+            <scope>system</scope>
+            <systemPath> ${project.basedir}/lib/CustomName.jar</systemPath>
         </dependency>
     </dependencies>
 
